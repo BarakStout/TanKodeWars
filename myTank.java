@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class myTank extends Tank{
 
-	private static final long serialVersionUID = 1L;
 	private int tankX;
 	private int tankY;
 	private int barrelAngle;

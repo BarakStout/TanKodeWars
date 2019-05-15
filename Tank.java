@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Tank extends Component {
 
-	private static final long serialVersionUID = 1L;
 	private Rectangle tank;
     private String name;
     private int barrelSize;

@@ -10,6 +10,7 @@ public class myTank2 extends Tank{
 	//list all tanks in the world
 	private ArrayList<Tank> tanks = null;
 	
+	// constructor already written for you
 	public myTank2(int x, int y, int w, int h, int s, int r, Color c, String n) {
 		super(x, y, w, h, s, r, c);
 		tankX = x;
@@ -18,6 +19,7 @@ public class myTank2 extends Tank{
 		setName(n);
 	}
 	
+	// Main loop function that will be called over and over
 	public void moveTank()
 	{
 	
@@ -32,6 +34,9 @@ public class myTank2 extends Tank{
 		//  bareelAngle = 45;
 			
 	}
+	
+	// You may add any function here
+	
 	
 	
 	
