@@ -1,8 +1,15 @@
+/*
+ *   YOUR NAME 
+ *   
+ *   MODIFY This Class 
+ */
+
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class myTank2 extends Tank{
+public class studentTank extends Tank{
 
+	// DO NOT REMOVE
 	private int tankX;
 	private int tankY;
 	private int barrelAngle;
@@ -10,8 +17,11 @@ public class myTank2 extends Tank{
 	//list all tanks in the world
 	private ArrayList<Tank> tanks = null;
 	
-	// constructor already written for you
-	public myTank2(int x, int y, int w, int h, int s, int r, Color c, String n) {
+	// You may add class variables here
+	
+	
+	// A constructor already written for you
+	public studentTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
 		super(x, y, w, h, s, r, c);
 		tankX = x;
 		tankY = y;

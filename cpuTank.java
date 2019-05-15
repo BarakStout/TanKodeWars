@@ -1,7 +1,13 @@
+/*
+ *   Barak Stout
+ *   
+ *   DO NOT MODIFY 
+ */
+
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class myTank extends Tank{
+public class cpuTank extends Tank{
 
 	private int tankX;
 	private int tankY;
@@ -13,7 +19,7 @@ public class myTank extends Tank{
 	private int targetX;
 	private int targetY;
 	
-	public myTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
+	public cpuTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
 		super(x, y, w, h, s, r, c);
 		tankX = x;
 		tankY = y;
@@ -40,10 +46,10 @@ public class myTank extends Tank{
 		// TODO: need to fix math to point barrel at target
 		barrelAngle = (int) Math.toDegrees(Math.atan(((double) tankY - targetY)/(tankX - targetX)));
 		fireShell();
-		System.out.println("Target: " + targetX + " " + targetY);
-		System.out.println("Own: " + tankX + " " + tankY);
-		System.out.println("Slope: " + (tankY - targetY)/(tankX - targetX));
-		System.out.println("Angle: " + barrelAngle);
+//		System.out.println("Target: " + targetX + " " + targetY);
+//		System.out.println("Own: " + tankX + " " + tankY);
+//		System.out.println("Slope: " + (tankY - targetY)/(tankX - targetX));
+//		System.out.println("Angle: " + barrelAngle);
 	}
 	
 	private void updateXY()

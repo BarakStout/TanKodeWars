@@ -1,3 +1,9 @@
+/*
+ *   Barak Stout
+ *   
+ *   DO NOT MODIFY 
+ */
+
 import java.awt.*;
 
 import java.util.ArrayList;
@@ -11,7 +17,7 @@ public class Tank extends Component {
     // TODO: add shellVelocity based on tank class
     private int shellVelocity = 2;
     
-    private double barrelAngle;
+    private double barrelAngle;	  
     private double barrelRadius; // How far from the center the barrel is.
     
     private int targetX;
