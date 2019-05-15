@@ -50,7 +50,7 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
     	Tank p1 = new cpuTank(30,30,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.BLUE, "tank1");
     	tanks.add(p1);
     	
-    	Tank p2 = new studentTank(startX,startY,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.GREEN, "tank2");
+    	Tank p2 = new playerTank(startX,startY,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.GREEN, "tank2");
     	tanks.add(p2);
     	 	
     }

@@ -12,6 +12,10 @@ Follow these setups:
   2. Extract files
   3. Run _Driver.java_
 
+## How To Play
+
+You are giving a cpuTank to beat. Modify playerTank code to beat the cpuTank. 
+
 ### Prerequisites
 
 Java JDK 8 or above ([Download Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html))
@@ -27,9 +31,7 @@ Fill in a pull request to contribute.
 ## Inspration
 
 _Inspired by a project created by Mr. Fahrenbacher for AP CSA students_
-[Original Obstacle Game Project Code](https://sites.google.com/a/d219.org/fahrenbacher-com/ap-computer-science-16-17/unit-9---oop) 
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+[Original Obstacle Game Project Code](https://sites.google.com/a/d219.org/fahrenbacher-com/ap-computer-science-16-17/unit-9---oop)
 
 ## License
 
