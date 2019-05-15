@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class myTank extends Tank{
 
+	private static final long serialVersionUID = 1L;
 	private int tankX;
 	private int tankY;
 	private int barrelAngle;
@@ -13,11 +14,12 @@ public class myTank extends Tank{
 	private int targetX;
 	private int targetY;
 	
-	public myTank(int x, int y, int w, int h, int s, int r, Color c) {
+	public myTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
 		super(x, y, w, h, s, r, c);
 		tankX = x;
 		tankY = y;
 		barrelAngle = 0;
+		setName(n);
 	}
 	
 	public void moveTank()
@@ -37,7 +39,7 @@ public class myTank extends Tank{
 				}
 		
 		barrelAngle = (int) Math.toDegrees(Math.atan(((double) tankY - targetY)/(tankX - targetX)));
-		
+		fireShell();
 		System.out.println("Target: " + targetX + " " + targetY);
 		System.out.println("Own: " + tankX + " " + tankY);
 		System.out.println("Slope: " + (tankY - targetY)/(tankX - targetX));

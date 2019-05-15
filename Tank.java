@@ -1,19 +1,27 @@
 import java.awt.*;
-import java.awt.geom.Area;
-import java.awt.geom.Line2D;
+
 import java.util.ArrayList;
 
 public class Tank extends Component {
-    private Rectangle tank;
+
+	private static final long serialVersionUID = 1L;
+	private Rectangle tank;
+    private String name;
     private int barrelSize;
     
-    private Graphics2D g2d;
+    //TODO: add shellVelocity based on tank class
+    private int shellVelocity = 2;
+    
     private double barrelAngle;
     private double barrelRadius; // How far from the center the barrel is.
     
     private int targetX;
     private int targetY; 
     private int targetBarrelAngle;
+    private boolean fired = false;
+    
+    //limit number of shells
+    private int shells = 1;
     
     private Color color;
     
@@ -26,6 +34,17 @@ public class Tank extends Component {
         targetY = y;
         targetBarrelAngle = 0;
         color = c;
+        name = "";
+    }
+    
+    public void setName(String s)
+    {
+    	name = s;
+    }
+    
+    public String getName()
+    {
+    	return name;
     }
     
     public int getX() {
@@ -52,10 +71,6 @@ public class Tank extends Component {
         return color;
     }
     
-    private Rectangle getRectangle() {
-        return tank;
-    }
-    
     public boolean intersects(Rectangle p) {
         return tank.intersects(p);
     }
@@ -69,13 +84,9 @@ public class Tank extends Component {
     		else tank.y++;
     	if(barrelAngle != targetBarrelAngle)
     		if(barrelAngle > targetBarrelAngle) barrelAngle--;
-    		else barrelAngle++;
-    		
+    		else barrelAngle++;  		
     }
-    
-    public void moveTank() {}
-    public void updateTanks(ArrayList<Tank> t) {}
-    
+
     public void goTo(int x, int y)
     {
     	targetX = x;
@@ -87,22 +98,45 @@ public class Tank extends Component {
     	targetBarrelAngle = degree;
     }
     
+    // TODO: set timer for cool down. 
+    public void fireShell()
+    {
+    	if (shells > 0)
+    		fired = true;
+    }
+    
+    // returns wethear a shell was just fired or not
+    public boolean fire()
+    {
+    	return fired;
+    }
+    
+    // TODO: verify math
+    // Gets a Shell object that was just fired
+    public Shell getShell()
+    {
+    	fired = false;
+    	shells--;
+    	
+    	// How far off from the center the barrel is in x and y.
+    	int offsetY = (int) (Math.sin(Math.toRadians(barrelAngle)) * barrelRadius);
+    	int offsetX = (int) (Math.cos(Math.toRadians(barrelAngle)) * barrelRadius);
+    	
+    	return new Shell(tank.x + tank.width / 2 - barrelSize / 2 + offsetX, tank.y + tank.height / 2 - barrelSize / 2 + offsetY, barrelRadius, barrelAngle, shellVelocity);
+    }
+    
     // Unified method that draws both the tank and its barrel at a given location and angle.
     public void draw(Graphics g) {
     	move();
-        drawBox(g);
+        drawTank(g);
         drawBarrel(g);
     }
     
     // Draws the tank at a location.
-    public void drawBox(Graphics g)
+    public void drawTank(Graphics g)
     {
-    	//g.setColor(getColor());
-        //g.fillRect(rect.x, rect.y, rect.width, rect.height);
-    	
         g.setColor(getColor());
-        g.fillRect(tank.x, tank.y, tank.width, tank.height);
-        
+        g.fillRect(tank.x, tank.y, tank.width, tank.height);       
     }
     
     // Draws the barrel at a location at an angle.
@@ -117,5 +151,15 @@ public class Tank extends Component {
     	g.fillOval(tank.x + tank.width / 2 - barrelSize / 2 + offsetX, tank.y + tank.height / 2 - barrelSize / 2 + offsetY, barrelSize, barrelSize);
   
     }
+
+    //TODO: better collision detection... 
+	public boolean intersects(Shell s) {
+		return s.getX() >= tank.x && s.getX() < tank.x + tank.width && s.getY() >= tank.y && s.getY() < tank.y + s.getY();
+	}
+	
+	// To be implemented by child class
+	public void moveTank() {}
+    public void updateTanks(ArrayList<Tank> t) {}
+    public void setTanks(ArrayList<Tank> tanks) {}
     
 }

@@ -10,14 +10,12 @@ public class myTank2 extends Tank{
 	//list all tanks in the world
 	private ArrayList<Tank> tanks = null;
 	
-	private int targetX;
-	private int targetY;
-	
-	public myTank2(int x, int y, int w, int h, int s, int r, Color c) {
+	public myTank2(int x, int y, int w, int h, int s, int r, Color c, String n) {
 		super(x, y, w, h, s, r, c);
 		tankX = x;
 		tankY = y;
 		barrelAngle = 0;
+		setName(n);
 	}
 	
 	public void moveTank()
@@ -28,13 +26,16 @@ public class myTank2 extends Tank{
 		aim(barrelAngle);
 		updateTankData();
 		
-		tankX++ ;
-		if(tankX > 375) tankY--;
-		
 		// YOUR CODE GOES HERE 
-		
+		// examples: 
+		//	tankX++;
+		//  bareelAngle = 45;
+			
 	}
 	
+	
+	
+	// DO NOT Change These
 	private void updateXY()
 	{
 		tankX = getX();
@@ -52,8 +53,11 @@ public class myTank2 extends Tank{
 		updateBarrelAngle();
 	}
 
-	public void updateTanks(ArrayList<Tank> t)
-	{
+	public ArrayList<Tank> getTanks() {
+		return tanks;
+	}
+
+	public void setTanks(ArrayList<Tank> t) {
 		tanks = t;
 	}
 }

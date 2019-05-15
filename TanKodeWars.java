@@ -4,7 +4,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
-	
+
+	private static final long serialVersionUID = 1L;
 	private int GAME_WIDTH = 600; //the width of the game area
     private int GAME_HEIGHT = 600; //the height of the game area
     private int FPS = 30; //frames per second
@@ -16,6 +17,7 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
     
     private Timer timer;
     private ArrayList<Tank> tanks = new ArrayList<Tank>();
+    private ArrayList<Shell> shells = new ArrayList<Shell>();
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
@@ -35,8 +37,7 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
         
         game.setUpGame();
         game.update();
-        
-        
+               
 	}
 	
 	public TanKodeWars()
@@ -78,10 +79,10 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
         timer = new Timer(1000 / FPS, this); //roughly 30 frames per second
         timer.start();
 
-    	Tank p1 = new myTank(30,30,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.BLUE);
+    	Tank p1 = new myTank(30,30,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.BLUE, "tank1");
     	tanks.add(p1);
     	
-    	Tank p2 = new myTank2(300,300,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.GREEN);
+    	Tank p2 = new myTank2(300,300,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.GREEN, "tank2");
     	tanks.add(p2);
     	
     	
@@ -91,6 +92,7 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
     public void update()
     {
     	
+    				
     }
 
     public void paint(Graphics g) {
@@ -101,9 +103,22 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
         {
         	t.draw(g);
         	t.moveTank();
-        	t.updateTanks(tanks);
+        	t.setTanks(tanks);
+        	if(t.fire())
+        		shells.add(t.getShell());
         }
         
+        for(Shell s : shells)
+        	s.drawShell(g);
+        
+//		TODO: fix collision detection and uncomment
+//        for(Shell s: shells)
+//    		for(Tank t: tanks)
+//    			if(t.intersects(s))
+//    			{
+//    				JOptionPane.showMessageDialog(null, "Tank " + t.getName() + " died!");
+//        			setUpGame();
+//    			}
         
     }
 
