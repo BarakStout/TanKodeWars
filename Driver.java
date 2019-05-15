@@ -3,7 +3,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 public class Driver {
-
+	
+	// Main method
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
         frame.setTitle("TanKode Wars");

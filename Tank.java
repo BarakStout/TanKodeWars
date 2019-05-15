@@ -8,7 +8,7 @@ public class Tank extends Component {
     private String name;
     private int barrelSize;
     
-    //TODO: add shellVelocity based on tank class
+    // TODO: add shellVelocity based on tank class
     private int shellVelocity = 2;
     
     private double barrelAngle;
@@ -19,11 +19,12 @@ public class Tank extends Component {
     private int targetBarrelAngle;
     private boolean fired = false;
     
-    //limit number of shells
+    // Limit number of shells
     private int shells = 1;
     
     private Color color;
     
+    // Constructor 
     public Tank(int x, int y, int w, int h, int s, int r, Color c) {
         tank = new Rectangle(x, y, w, h);
         barrelAngle = 0;
@@ -36,11 +37,13 @@ public class Tank extends Component {
         name = "";
     }
     
+    // Method to set the tanks name
     public void setName(String s)
     {
     	name = s;
     }
     
+    // --- GETTERS ----------------------------------------
     public String getName()
     {
     	return name;
@@ -69,11 +72,14 @@ public class Tank extends Component {
     public Color getColor() {
         return color;
     }
+    // ----------------------------------------------------
     
+    // TODO: need better collision detection
     public boolean intersects(Rectangle p) {
         return tank.intersects(p);
     }
     
+    // TODO: make sure tank isn't outside of battle area
     private void move() {
     	if(tank.x != targetX)
     		if(tank.x > targetX) tank.x--;
@@ -86,25 +92,28 @@ public class Tank extends Component {
     		else barrelAngle++;  		
     }
 
+    // TODO: make sure x and y are within the battle area
+    // sets an x,y coordinates to move the tank to
     public void goTo(int x, int y)
     {
     	targetX = x;
     	targetY = y;
     }
     
+    // set barrel target angle to degree
     public void aim(int degree)
     {
     	targetBarrelAngle = degree;
     }
     
-    // TODO: set timer for cool down. 
+    // TODO: set timer for cool down. Right now each tank has 1 shot 
     public void fireShell()
     {
     	if (shells > 0)
     		fired = true;
     }
     
-    // returns wethear a shell was just fired or not
+    // returns whether a shell was just fired or not
     public boolean fire()
     {
     	return fired;

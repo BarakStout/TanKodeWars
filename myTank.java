@@ -37,6 +37,7 @@ public class myTank extends Tank{
 					targetY = t.getY();
 				}
 		
+		// TODO: need to fix math to point barrel at target
 		barrelAngle = (int) Math.toDegrees(Math.atan(((double) tankY - targetY)/(tankX - targetX)));
 		fireShell();
 		System.out.println("Target: " + targetX + " " + targetY);

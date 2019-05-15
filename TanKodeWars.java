@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
 	
-	private int GAME_WIDTH = 600; //The width of the game area
-    private int GAME_HEIGHT = 600; //The height of the game area
-    private int FPS = 30; //Frames per second (lower is slower)
-    private Timer timer;
+	//Game environment constants
+	private final int GAME_WIDTH = 600; //The width of the game area
+    private final int GAME_HEIGHT = 600; //The height of the game area
+    private final int FPS = 30; //Frames per second (lower is slower)    
     
     //Tank variables
     private final int TANK_HEIGHT = 50;
@@ -23,7 +23,8 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
     private ArrayList<Tank> tanks = new ArrayList<Tank>();
     private ArrayList<Shell> shells = new ArrayList<Shell>();
 
-	
+    private Timer timer;
+
 	//Constructor
 	public TanKodeWars()
 	{
@@ -65,6 +66,7 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
 //  			{
 //  				JOptionPane.showMessageDialog(null, "Tank " + t.getName() + " died!");
 //      			setUpGame();
+//    				timer.stop();
 //  			}				
     }
 
@@ -88,15 +90,19 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
         
     }
     
-    // METHODS FOR KEYED INPUT -----------------------------------------------------------------
+    // vvvvvvvvvvvvvvvv  METHODS FOR KEY INPUT   vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    
     //Called every time a key is pressed
-    //Stores the down state for use in the update method
     public void keyPressed(KeyEvent e) {
+    	
+    	// press p to pause and resume simulation
+    	if(e.getKeyCode() == KeyEvent.VK_P)
+    		if(timer.isRunning()) timer.stop();
+    		else timer.start();
         
     }
     
     //Called every time a key is released
-    //Stores the down state for use in the update method
     public void keyReleased(KeyEvent e) {
         
     }

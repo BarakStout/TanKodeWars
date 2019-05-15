@@ -40,7 +40,7 @@ public class myTank2 extends Tank{
 	
 	
 	
-	// DO NOT Change These
+	// --------------  DO NOT Change any of the methods bellow ----------------
 	private void updateXY()
 	{
 		tankX = getX();
