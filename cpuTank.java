@@ -9,7 +9,7 @@
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class cpuTank extends Tank{
+public class CpuTank extends Tank{
 
 	private int tankX;
 	private int tankY;
@@ -21,7 +21,7 @@ public class cpuTank extends Tank{
 	private int targetX;
 	private int targetY;
 	
-	public cpuTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
+	public CpuTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
 		super(x, y, w, h, s, r, c);
 		tankX = x;
 		tankY = y;

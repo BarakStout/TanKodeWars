@@ -44,13 +44,13 @@ public class TanKodeWars extends JPanel implements ActionListener, KeyListener{
         timer = new Timer(1000 / FPS, this); //roughly 30 frames per second
         timer.start();
         
-        int startX = (int) (Math.random() * (GAME_WIDTH - TANK_WIDTH));
-        int startY = (int) (Math.random() * (GAME_HEIGHT - TANK_HEIGHT));
+        int startX = 300; // (int) (Math.random() * (GAME_WIDTH - TANK_WIDTH));
+        int startY = 300; // (int) (Math.random() * (GAME_HEIGHT - TANK_HEIGHT));
 
-    	Tank p1 = new cpuTank(30,30,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.BLUE, "tank1");
+    	Tank p1 = new CpuTank(30,30,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.BLUE, "tank1");
     	tanks.add(p1);
     	
-    	Tank p2 = new playerTank(startX,startY,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.GREEN, "tank2");
+    	Tank p2 = new PlayerTank(startX,startY,TANK_WIDTH,TANK_HEIGHT,BARREL_SIZE,BARREL_SIZE, Color.GREEN, "tank2");
     	tanks.add(p2);
     	 	
     }

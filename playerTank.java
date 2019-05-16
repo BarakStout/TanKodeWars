@@ -7,7 +7,7 @@
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class playerTank extends Tank{
+public class PlayerTank extends Tank{
 
 	// DO NOT REMOVE
 	private int tankX;
@@ -21,7 +21,7 @@ public class playerTank extends Tank{
 	
 	
 	// A constructor already written for you
-	public playerTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
+	public PlayerTank(int x, int y, int w, int h, int s, int r, Color c, String n) {
 		super(x, y, w, h, s, r, c);
 		tankX = x;
 		tankY = y;
