@@ -46,7 +46,7 @@ public class CpuTank extends Tank{
 				}
 		
 		// TODO: need to fix math to point barrel at target
-		barrelAngle = (int) Math.toDegrees(Math.atan(((double) tankY - targetY)/(tankX - targetX)));
+		barrelAngle = (int) Math.toDegrees(Math.atan(((double) tankY - targetY)/((double) tankX - targetX)));
 		fireShell();
 //		System.out.println("Target: " + targetX + " " + targetY);
 //		System.out.println("Own: " + tankX + " " + tankY);

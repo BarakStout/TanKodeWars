@@ -40,17 +40,19 @@ public class PlayerTank extends Tank{
 		
 		// YOUR CODE GOES HERE 
 		// examples: 
-		//	tankX++;
+		//  tankX++;;
 		//  bareelAngle = 45;
 			
 	}
+	
+
 	
 	// You may add any function here
 	
 	
 	
 	
-	// --------------  DO NOT Change any of the methods bellow ----------------
+	// --------------  DO NOT Change any of the methods below ----------------
 	private void updateXY()
 	{
 		tankX = getX();
